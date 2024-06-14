@@ -15,9 +15,19 @@ class CreateCampBenefitsTable extends Migration
     {
         Schema::create('camp_benefits', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('camp_id');
+
+            // 1st method
+            // $table->bigInteger('camp_id')->unsigned();
+            // $table->unsignedBigInteger('camp_id');
+
+            // 2nd method
+            $table->foreignId('camp_id')->constrained();
+
             $table->string('name');
             $table->timestamps();
+
+            // 1st method
+            // $table->foreign('camp_id')->references('id')->on('camps')->onDelete('cascade');
         });
     }
 
