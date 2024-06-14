@@ -22,7 +22,6 @@ class CreateCampBenefitsTable extends Migration
 
             // 2nd method
             $table->foreignId('camp_id')->constrained();
-
             $table->string('name');
             $table->timestamps();
 
